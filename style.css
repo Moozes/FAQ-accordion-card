@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+:root {
+    /* text primary */
+    --Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+    --Soft-red: hsl(14, 88%, 65%);
+
+    /* background gradient */
+    --Soft-violet: hsl(273, 75%, 66%);
+    --Soft-blue: hsl(240, 73%, 65%);
+
+    /* text neutral */
+    --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --Dark-grayish-blue: hsl(240, 6%, 50%);
+
+    /* dividers */
+    --Ligh-grayish-blue: hsl(240, 5%, 91%);
+
+    --font-size : 12px;
+}
+
+* {
+    box-sizing: border-box;
+    /* padding: 0;
+    margin: 0; */
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: var(--font-size);
+    height : 100vh;
+
+    display : flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(to top right, var(--Soft-blue), var(--Soft-violet));
+    color : var(--Dark-grayish-blue);
+    font-weight :700;
+}
+
+
+.mobile {
+    display : none;
+}
+
+
+
+
+/* .card, .right, .left, .left img{
+    border : 1px solid black;
+} */
+
+
+.card {
+    width : 720px;
+
+    display: flex;
+    align-items: center;
+
+    /* padding: 30px; */
+
+    overflow: hidden;
+
+    background: white;
+    border-radius: 3%;
+}
+
+
+
+
+
+.card .left {
+    flex : 1;
+    align-self: stretch;
+
+    background: url("images/bg-pattern-desktop.svg") no-repeat -100px 20px/cover;
+
+    position: relative;
+}
+
+.left img.desktop:nth-of-type(1){
+    width : 300px;
+
+    position: absolute;
+    top: 50px;
+    left : -50px;
+}
+
+.left img.desktop:nth-of-type(2) {
+    width : 100px;
+
+    position : absolute;
+    top : 130px;
+    left : -55px;
+}
+
+.card .right {
+    flex : 1;
+    padding : 30px;
+
+    max-height: 366.156px; /* the solution to not effect the whole .card height when expanding answers */
+    overflow: hidden; 
+}
+
+.card .right h1 {
+    color : var(--Very-dark-desaturated-blue);
+}
+
+.card .right .question {
+    display : flex;
+    align-items: center;
+}
+
+.card .right .question {
+    transition: color 0.5s ease;
+}
+
+.card .right .question:hover {
+    cursor: pointer;
+    color : var(--Soft-red);
+}
+
+.card .right .question p {
+    flex : 1;
+}
+
+.card .right .question img {
+    transition: transform 0.5s ease;
+}
+
+.card .right .question img.rotate {
+    transform: rotate(-180deg);
+}
+
+.card .right .question.active {
+    color : var(--Very-dark-desaturated-blue);
+}
+
+.card .right .answer {
+    display : none;
+    font-weight: 400;
+}
+
+.card .right .answer.show{
+    display : inline-block
+} 
+
+.card .right hr {
+    border :1px solid var(--Ligh-grayish-blue);
+}
+
+@media(max-width : 750px) {
+    body {
+        overflow: hidden;
+    }
+
+    .desktop {
+        display : none;
+    }
+
+    .mobile {
+        display: inline-block;
+    }
+
+    .card {
+        display: inline-block;
+        width : 310px;
+
+        overflow :visible;
+    }
+
+    .card .left {
+        height : 100px;
+        background: url("images/bg-pattern-mobile.svg") no-repeat center center/contain;
+    }
+
+    .card .left img {
+        width : 235px;
+
+        position: relative;
+        top : -90px;
+        left : 25px;
+    }
+
+    .card .right {
+        padding: 0 20px 20px 20px;
+        max-height: 326.156px;
+    }
+
+    .card .right h1 {
+        text-align: center;
+    }
+}
+
